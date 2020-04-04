@@ -1,0 +1,35 @@
+{
+    "name": "vuetifyjs-mix-extension",
+    "version": "0.0.1",
+    "description": "Vuetifyjs Setup for Laravel Mix extensions",
+    "author": {
+        "name": "Andy Song",
+        "email": "andylauszp@gmail.com",
+        "url": "https://github.com/Nothing-Works"
+    },
+    "main": "index.js",
+    "keywords": [
+        "laravel",
+        "laravel mix",
+        "mix",
+        "vuetifyjs",
+        "vuetify js",
+        "vuetify-js",
+        "vuetify"
+    ],
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "bugs": {
+        "url": ""
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "babel-eslint": "^10.1.0",
+        "eslint": "^6.8.0",
+        "eslint-config-prettier": "^6.10.1",
+        "eslint-plugin-prettier": "^3.1.2",
+        "prettier": "^2.0.2"
+    }
+}
