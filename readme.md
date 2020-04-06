@@ -1,5 +1,10 @@
 # Vuetify Laravel Mix Extension
 
+[![Latest Version on NPM][ico-version]][link-npm]
+[![Software License][ico-license]](LICENSE.md)
+[![StyleCI][ico-styleci]][link-styleci]
+[![Total Downloads][ico-downloads]][link-downloads]
+
 ## Usage
 
 1. Install
