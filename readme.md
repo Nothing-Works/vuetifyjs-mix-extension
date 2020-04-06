@@ -1,10 +1,5 @@
 # Vuetify Laravel Mix Extension
 
-[![Latest Version on NPM][ico-version]][link-npm]
-[![Software License][ico-license]](LICENSE.md)
-[![StyleCI][ico-styleci]][link-styleci]
-[![Total Downloads][ico-downloads]][link-downloads]
-
 ## Usage
 
 1. Install
@@ -34,3 +29,7 @@ mix.js('resources/js/app.js', 'public/js').vuetify('vuetify-loader')
 ```bash
 npm run dev
 ```
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE) for more information.
