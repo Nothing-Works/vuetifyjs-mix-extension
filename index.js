@@ -20,7 +20,7 @@ class Vuetify {
 
         const deps = ['vuetify', 'sass', 'sass-loader', 'fibers', 'deepmerge']
 
-        if (this.withVueLoader()) deps.push('vuetify-loader')
+        if (this.withVuetifyLoader()) deps.push('vuetify-loader')
 
         return deps
     }
