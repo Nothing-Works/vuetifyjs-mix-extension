@@ -6,12 +6,13 @@ class Vuetify {
         this.vuetifyPath = path.resolve(__dirname, 'node_modules/vuetify')
     }
 
-    withVueLoader() {
+    withVuetifyLoader() {
         return this.vuetifyLoader === 'vuetify-loader'
     }
 
-    register(loader) {
+    register(loader, options) {
         this.vuetifyLoader = loader
+        this.vuetifyLoaderOptions = options
     }
 
     dependencies() {
@@ -46,10 +47,10 @@ class Vuetify {
     }
 
     webpackPlugins() {
-        if (this.withVueLoader()) {
+        if (this.withVuetifyLoader()) {
             const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 
-            return new VuetifyLoaderPlugin()
+            return new VuetifyLoaderPlugin(this.vuetifyLoaderOptions)
         }
     }
 
