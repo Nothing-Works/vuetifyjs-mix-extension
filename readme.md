@@ -30,6 +30,23 @@ mix.js('resources/js/app.js', 'public/js').vuetify('vuetify-loader')
 npm run dev
 ```
 
+## Progressive images
+
+If you want to use [Progressive images feature](https://github.com/vuetifyjs/vuetify-loader#progressive-images), it is also easy to configure.
+
+**NOTE:** You **_must_** have [ImageMagick](https://www.imagemagick.org/script/index.php), [GraphicsMagick](http://www.graphicsmagick.org/), or [sharp](https://github.com/lovell/sharp) installed for this to work.
+
+All you need to do is to pass the `progressiveImages` options as the second argument when you enable `vuetify-loader`.
+
+Here is an example:
+
+```js
+const options = { progressiveImages: true }
+mix.js('resources/js/app.js', 'public/js').vuetify('vuetify-loader', options)
+```
+
+Of course you can pass more options to it, it works the same as the `vuetify-loader` [doc](https://github.com/vuetifyjs/vuetify-loader/blob/master/README.md#configuration).
+
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE) for more information.
