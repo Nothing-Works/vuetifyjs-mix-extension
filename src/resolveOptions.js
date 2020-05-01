@@ -1,24 +1,24 @@
-const rf = require('./resolveFile')
 const rp = require('./resolveParameter')
+const rf = require('./resolveFile')
 
 function resolveOptions(args) {
-    let { fileString, optionObject } = rp(args)
+    const { file, option } = rp(args)
 
-    let file = rf(fileString)
+    const resolvedFile = rf(file)
 
     const sassArray = [
         {
             sass: /\.sass$/,
-            data: file ? `@import ${file}` : undefined
+            data: resolvedFile ? `@import ${resolvedFile}` : undefined
         },
         {
             sass: /\.scss$/,
-            data: file ? `@import ${file};` : undefined
+            data: resolvedFile ? `@import ${resolvedFile};` : undefined
         }
     ]
 
     return {
-        optionObject,
+        option,
         sassArray
     }
 }

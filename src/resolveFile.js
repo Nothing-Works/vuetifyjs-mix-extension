@@ -1,13 +1,14 @@
-const path = require('path')
 const fs = require('fs')
+const getPath = require('./getPath')
 
 function resolveFile(file) {
-    const rootPath = process.env.PWD
-    const defaultPath = path.resolve(rootPath, 'resources/sass/variables.scss')
+    const filePath = getPath(file)
+
+    const defaultPath = getPath('resources/sass/variables.scss')
+
+    if (fs.existsSync(filePath)) return filePath
 
     if (fs.existsSync(defaultPath)) return defaultPath
-
-    if (fs.existsSync(file)) return file
 
     return null
 }

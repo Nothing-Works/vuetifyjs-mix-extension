@@ -1,11 +1,10 @@
 const mix = require('laravel-mix')
-const path = require('path')
+const getPath = require('./src/getPath')
 const resolveOptions = require('./src/resolveOptions')
 
 class Vuetify {
     constructor() {
-        this.root = process.env.PWD
-        this.vuetifyPath = path.resolve(this.root, 'node_modules/vuetify')
+        this.vuetifyPath = getPath('node_modules/vuetify')
     }
 
     withVuetifyLoader() {
@@ -19,7 +18,7 @@ class Vuetify {
 
     resolve(options) {
         const resolved = resolveOptions(options)
-        this.vuetifyLoaderOptions = resolved.optionObject
+        this.vuetifyLoaderOptions = resolved.option
         this.sassArray = resolved.sassArray
     }
 

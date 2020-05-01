@@ -1,22 +1,18 @@
 function resolveParams(params) {
-    let firstTwo = params.slice(0, 2)
+    const firstTwo = params.slice(0, 2)
 
-    let fileString = null
-    let optionObject = {}
+    let file = null
+    let option = {}
 
     for (const i of firstTwo) {
-        if (typeof i === 'string') {
-            fileString = i
-        }
+        if (typeof i === 'string') file = i
 
-        if (typeof i === 'object') {
-            optionObject = i
-        }
+        if (typeof i === 'object') option = i
     }
 
     return {
-        fileString,
-        optionObject
+        file,
+        option
     }
 }
 

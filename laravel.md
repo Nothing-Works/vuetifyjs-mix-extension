@@ -92,13 +92,28 @@ npm run dev
 
 **NOTE:** the first time you run this it's going to install all the required dependency. So you need to run `npm run dev` again to compile all your assets.
 
+## SASS variables
+
+**NOTE:** This is only supported when using `tree-shaking`
+
+By default it's going to look at your root directory `'resources/sass/variables.scss'` file. It's going to use that file, if it exists.
+
+You can also give it a different path, for example:
+
+```js
+mix.js('resources/js/app.js', 'public/js').vuetify(
+    'vuetify-loader',
+    'src/path/to/variables.scss'
+)
+```
+
 ## Progressive images
 
 If you want to use [Progressive images feature](https://github.com/vuetifyjs/vuetify-loader#progressive-images), it is also easy to configure.
 
 **NOTE:** You **_must_** have [ImageMagick](https://www.imagemagick.org/script/index.php), [GraphicsMagick](http://www.graphicsmagick.org/), or [sharp](https://github.com/lovell/sharp) installed for this to work.
 
-All you need to do is to pass the `progressiveImages` options as the second argument when you enable `vuetify-loader`.
+All you need to do is to pass the `progressiveImages` options in when you enable `vuetify-loader`.
 
 Here is an example:
 
@@ -108,3 +123,5 @@ mix.js('resources/js/app.js', 'public/js').vuetify('vuetify-loader', options)
 ```
 
 Of course you can pass more options to it, it works the same as the `vuetify-loader` [doc](https://github.com/vuetifyjs/vuetify-loader/blob/master/README.md#configuration).
+
+**Finally, if you use both `Progressive images` and `SASS variables`, just pass both arguments after `'vuetify-loader'`. The order of the arguments does not matter**
