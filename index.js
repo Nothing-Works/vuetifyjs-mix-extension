@@ -1,18 +1,26 @@
 const mix = require('laravel-mix')
 const path = require('path')
+const resolveOptions = require('./src/resolveOptions')
 
 class Vuetify {
     constructor() {
-        this.vuetifyPath = path.resolve(__dirname, 'node_modules/vuetify')
+        this.root = process.env.PWD
+        this.vuetifyPath = path.resolve(this.root, 'node_modules/vuetify')
     }
 
     withVuetifyLoader() {
         return this.vuetifyLoader === 'vuetify-loader'
     }
 
-    register(loader, options) {
+    register(loader, ...options) {
         this.vuetifyLoader = loader
-        this.vuetifyLoaderOptions = options
+        this.resolve(options)
+    }
+
+    resolve(options) {
+        const resolved = resolveOptions(options)
+        this.vuetifyLoaderOptions = resolved.optionObject
+        this.sassArray = resolved.sassArray
     }
 
     dependencies() {
@@ -25,9 +33,9 @@ class Vuetify {
         return deps
     }
 
-    webpackRules() {
-        return {
-            test: /\.s(c|a)ss$/,
+    generateRules() {
+        return this.sassArray.map((t) => ({
+            test: t.sass,
             include: [this.vuetifyPath],
             use: [
                 'vue-style-loader',
@@ -35,6 +43,7 @@ class Vuetify {
                 {
                     loader: 'sass-loader',
                     options: {
+                        prependData: t.data,
                         implementation: require('sass'),
                         sassOptions: {
                             fiber: require('fibers'),
@@ -43,7 +52,11 @@ class Vuetify {
                     }
                 }
             ]
-        }
+        }))
+    }
+
+    webpackRules() {
+        return this.generateRules()
     }
 
     webpackPlugins() {
@@ -54,15 +67,15 @@ class Vuetify {
         }
     }
 
-    excludeVuetifyPath(config, options) {
-        for (const i of options)
+    excludeVuetifyPath(config) {
+        for (const i of this.sassArray)
             config.module.rules
-                .find((r) => String(r.test) === String(i))
+                .find((r) => String(r.test) === String(i.sass))
                 .exclude.push(this.vuetifyPath)
     }
 
     webpackConfig(config) {
-        this.excludeVuetifyPath(config, [/\.sass$/, /\.scss$/])
+        this.excludeVuetifyPath(config)
     }
 }
 
