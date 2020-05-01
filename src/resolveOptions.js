@@ -13,7 +13,7 @@ function resolveOptions(args) {
         },
         {
             sass: /\.scss$/,
-            data: file ? `@import ${file}` : undefined
+            data: file ? `@import ${file};` : undefined
         }
     ]
 
