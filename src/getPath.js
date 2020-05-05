@@ -3,7 +3,9 @@ const path = require('path')
 function getPath(file) {
     if (file === null) return null
 
-    const rootPath = process.env.PWD
+    let rootPath = process.env.PWD
+
+    if (typeof rootPath === 'undefined') rootPath = process.cwd()
 
     return path.resolve(rootPath, file)
 }
