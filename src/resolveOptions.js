@@ -17,9 +17,12 @@ function resolveOptions(args) {
         }
     ]
 
+    const { extract, ...vuetifyLoaderOptions } = option
+
     return {
-        option,
-        sassArray
+        option: vuetifyLoaderOptions,
+        sassArray,
+        extract
     }
 }
 
