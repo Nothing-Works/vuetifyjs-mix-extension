@@ -4,6 +4,8 @@
 
 ### If you are a Laravel user, here are some useful [instructions](https://github.com/Nothing-Works/vuetifyjs-mix-extension/blob/master/laravel.md).
 
+**NOTE: This extension only supports `sass-loader` `^9.0.0` ATM**
+
 1. Install
 
 ```bash
