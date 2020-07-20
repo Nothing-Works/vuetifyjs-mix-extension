@@ -51,7 +51,7 @@ class Vuetify {
                 {
                     loader: 'sass-loader',
                     options: {
-                        prependData: t.data,
+                        additionalData: t.data,
                         implementation: require('sass'),
                         sassOptions: {
                             fiber: require('fibers'),
