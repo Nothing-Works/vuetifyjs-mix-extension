@@ -11,6 +11,10 @@ class Vuetify {
         return this.vuetifyLoader === 'vuetify-loader'
     }
 
+    withExtract() {
+        return !!this.extract
+    }
+
     register(loader, ...options) {
         this.vuetifyLoader = loader
         this.resolve(options)
@@ -20,6 +24,7 @@ class Vuetify {
         const resolved = resolveOptions(options)
         this.vuetifyLoaderOptions = resolved.option
         this.sassArray = resolved.sassArray
+        this.extract = resolved.extract
     }
 
     dependencies() {
@@ -29,6 +34,8 @@ class Vuetify {
 
         if (this.withVuetifyLoader()) deps.push('vuetify-loader')
 
+        if (this.withExtract()) deps.push('mini-css-extract-plugin')
+
         return deps
     }
 
@@ -37,7 +44,9 @@ class Vuetify {
             test: t.sass,
             include: [this.vuetifyPath],
             use: [
-                'vue-style-loader',
+                this.withExtract()
+                    ? require('mini-css-extract-plugin').loader
+                    : 'vue-style-loader',
                 'css-loader',
                 {
                     loader: 'sass-loader',
@@ -59,11 +68,29 @@ class Vuetify {
     }
 
     webpackPlugins() {
+        const plugins = []
+
         if (this.withVuetifyLoader()) {
             const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 
-            return new VuetifyLoaderPlugin(this.vuetifyLoaderOptions)
+            plugins.push(new VuetifyLoaderPlugin(this.vuetifyLoaderOptions))
         }
+
+        if (this.withExtract()) {
+            const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
+            plugins.push(
+                new MiniCssExtractPlugin({
+                    filename: this.extract,
+                    options: {
+                        // eslint-disable-next-line no-undef
+                        hmr: Mix.isUsing('hmr')
+                    }
+                })
+            )
+        }
+
+        return plugins
     }
 
     excludeVuetifyPath(config) {
