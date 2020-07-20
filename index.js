@@ -22,7 +22,7 @@ class Vuetify {
 
     resolve(options) {
         const resolved = resolveOptions(options)
-        this.vuetifyLoaderOptions = resolved.option
+        this.vuetifyLoaderOptions = resolved.vuetifyLoaderOptions
         this.sassArray = resolved.sassArray
         this.extract = resolved.extract
     }

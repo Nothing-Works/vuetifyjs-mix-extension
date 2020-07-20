@@ -67,13 +67,13 @@ Of course you can pass more options to it, it works the same as the `vuetify-loa
 **Finally, if you use both `Progressive images` and `SASS variables`, just pass both arguments after `'vuetify-loader'`. The order of the arguments does not matter**
 
 ## Extract css
+
 To extract all Vuetify components css, pass the `extract` option.
 
 ```js
-mix.js('resources/js/app.js', 'public/js')
-   .vuetify('vuetify-loader', {
-        extract: 'css/vuetify-components.css'
-   })
+mix.js('resources/js/app.js', 'public/js').vuetify('vuetify-loader', {
+    extract: 'css/vuetify-components.css'
+})
 ```
 
 ## License
