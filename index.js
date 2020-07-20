@@ -67,30 +67,32 @@ class Vuetify {
         return this.generateRules()
     }
 
-    webpackPlugins() {
-        const plugins = []
+    webpackConfig(config) {
+        this.excludeVuetifyPath(config)
 
-        if (this.withVuetifyLoader()) {
-            const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
+        if (this.withVuetifyLoader()) this.addVuetifyLoader(config)
 
-            plugins.push(new VuetifyLoaderPlugin(this.vuetifyLoaderOptions))
-        }
+        if (this.withExtract()) this.addExtract(config)
+    }
 
-        if (this.withExtract()) {
-            const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+    addVuetifyLoader(config) {
+        const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 
-            plugins.push(
-                new MiniCssExtractPlugin({
-                    filename: this.extract,
-                    options: {
-                        // eslint-disable-next-line no-undef
-                        hmr: Mix.isUsing('hmr')
-                    }
-                })
-            )
-        }
+        config.plugins.push(new VuetifyLoaderPlugin(this.vuetifyLoaderOptions))
+    }
 
-        return plugins
+    addExtract(config) {
+        const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
+        config.plugins.push(
+            new MiniCssExtractPlugin({
+                filename: this.extract,
+                options: {
+                    // eslint-disable-next-line no-undef
+                    hmr: Mix.isUsing('hmr')
+                }
+            })
+        )
     }
 
     excludeVuetifyPath(config) {
@@ -98,10 +100,6 @@ class Vuetify {
             config.module.rules
                 .find((r) => String(r.test) === String(i.sass))
                 .exclude.push(this.vuetifyPath)
-    }
-
-    webpackConfig(config) {
-        this.excludeVuetifyPath(config)
     }
 }
 
