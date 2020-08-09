@@ -4,7 +4,8 @@
 
 ### If you are a Laravel user, here are some useful [instructions](https://github.com/Nothing-Works/vuetifyjs-mix-extension/blob/master/laravel.md).
 
-**NOTE: This extension only supports `sass-loader` `^9.0.0` ATM**
+**NOTE: This extension only supports `sass-loader` `^9.0.0` ATM.**
+**NOTE: Also added `postcss-loader` support, not sure this should be by default or not. (let's see)**
 
 1. Install
 

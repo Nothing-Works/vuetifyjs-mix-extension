@@ -30,7 +30,14 @@ class Vuetify {
     dependencies() {
         this.requiresReload = true
 
-        const deps = ['vuetify', 'sass', 'sass-loader', 'fibers', 'deepmerge']
+        const deps = [
+            'vuetify',
+            'sass',
+            'sass-loader',
+            'fibers',
+            'deepmerge',
+            'postcss-loader'
+        ]
 
         if (this.withVuetifyLoader()) deps.push('vuetify-loader')
 
