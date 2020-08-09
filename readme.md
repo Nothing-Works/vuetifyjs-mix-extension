@@ -5,7 +5,6 @@
 ### If you are a Laravel user, here are some useful [instructions](https://github.com/Nothing-Works/vuetifyjs-mix-extension/blob/master/laravel.md).
 
 **NOTE: This extension only supports `sass-loader` `^9.0.0` ATM.**
-**NOTE: Also added `postcss-loader` support, not sure this should be by default or not. (let's see)**
 
 1. Install
 
@@ -77,6 +76,12 @@ To extract all Vuetify components css, pass the `extract` option.
 mix.js('resources/js/app.js', 'public/js').vuetify('vuetify-loader', {
     extract: 'css/vuetify-components.css'
 })
+```
+
+## Postcss support
+
+```js
+mix.js('resources/js/app.js', 'public/js').vuetify('', { postcss: true })
 ```
 
 ## License

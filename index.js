@@ -15,6 +15,10 @@ class Vuetify {
         return !!this.extract
     }
 
+    withPostcss() {
+        return !!this.postcss
+    }
+
     register(loader, ...options) {
         this.vuetifyLoader = loader
         this.resolve(options)
@@ -25,23 +29,19 @@ class Vuetify {
         this.vuetifyLoaderOptions = resolved.vuetifyLoaderOptions
         this.sassArray = resolved.sassArray
         this.extract = resolved.extract
+        this.postcss = resolved.postcss
     }
 
     dependencies() {
         this.requiresReload = true
 
-        const deps = [
-            'vuetify',
-            'sass',
-            'sass-loader',
-            'fibers',
-            'deepmerge',
-            'postcss-loader'
-        ]
+        const deps = ['vuetify', 'sass', 'sass-loader', 'fibers', 'deepmerge']
 
         if (this.withVuetifyLoader()) deps.push('vuetify-loader')
 
         if (this.withExtract()) deps.push('mini-css-extract-plugin')
+
+        if (this.withPostcss()) deps.push('postcss-loader')
 
         return deps
     }
@@ -55,7 +55,7 @@ class Vuetify {
                     ? require('mini-css-extract-plugin').loader
                     : 'vue-style-loader',
                 'css-loader',
-                'postcss-loader',
+                ...this.addPostcssIfNeeded(),
                 {
                     loader: 'sass-loader',
                     options: {
@@ -81,6 +81,10 @@ class Vuetify {
         if (this.withVuetifyLoader()) this.addVuetifyLoader(config)
 
         if (this.withExtract()) this.addExtract(config)
+    }
+
+    addPostcssIfNeeded() {
+        return this.withPostcss ? ['postcss-loader'] : []
     }
 
     addVuetifyLoader(config) {
