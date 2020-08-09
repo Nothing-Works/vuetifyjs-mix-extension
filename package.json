@@ -1,6 +1,6 @@
 {
     "name": "vuetifyjs-mix-extension",
-    "version": "0.0.13",
+    "version": "0.0.14",
     "description": "Vuetifyjs Setup for Laravel Mix extensions",
     "author": {
         "name": "Andy Song",

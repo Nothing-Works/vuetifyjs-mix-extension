@@ -84,7 +84,7 @@ class Vuetify {
     }
 
     addPostcssIfNeeded() {
-        return this.withPostcss ? ['postcss-loader'] : []
+        return this.withPostcss() ? ['postcss-loader'] : []
     }
 
     addVuetifyLoader(config) {
