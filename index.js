@@ -48,6 +48,7 @@ class Vuetify {
                     ? require('mini-css-extract-plugin').loader
                     : 'vue-style-loader',
                 'css-loader',
+                'postcss-loader',
                 {
                     loader: 'sass-loader',
                     options: {
