@@ -35,7 +35,7 @@ class Vuetify {
     dependencies() {
         this.requiresReload = true
 
-        const deps = ['vuetify', 'sass', 'sass-loader', 'fibers', 'deepmerge']
+        const deps = ['vuetify', 'sass', 'sass-loader', 'deepmerge']
 
         if (this.withVuetifyLoader()) deps.push('vuetify-loader')
 
@@ -62,7 +62,6 @@ class Vuetify {
                         additionalData: t.data,
                         implementation: require('sass'),
                         sassOptions: {
-                            fiber: require('fibers'),
                             indentedSyntax: true
                         }
                     }
