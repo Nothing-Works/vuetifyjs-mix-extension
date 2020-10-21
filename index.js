@@ -1,6 +1,7 @@
 const mix = require('laravel-mix')
 const getPath = require('./src/getPath')
 const resolveOptions = require('./src/resolveOptions')
+const path = require('path')
 
 class Vuetify {
     constructor() {
@@ -101,7 +102,10 @@ class Vuetify {
                 options: {
                     // eslint-disable-next-line no-undef
                     hmr: Mix.isUsing('hmr')
-                }
+                },
+                chunkFilename: mix.config.publicPath
+                    ? path.join('/', this.extract)
+                    : path.join('/', mix.config.publicPath, this.extract)
             })
         )
     }
