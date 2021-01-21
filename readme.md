@@ -1,6 +1,6 @@
 # Vuetify Laravel Mix Extension
 
-## NOTE: ATM this library does not support mix v6, will update to support soon. 👩‍🦯
+## NOTE: ATM this library does not support mix v6, will update to support soon. 👩‍🦯 (Wait! what do you mean by "soon"? I mean this WEEKEND!!! OK???) 👩‍🦯
 
 ## Usage
 
