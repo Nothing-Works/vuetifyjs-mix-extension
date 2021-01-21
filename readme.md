@@ -1,5 +1,7 @@
 # Vuetify Laravel Mix Extension
 
+## NOTE: ATM this library does not support mix v6, will update to support soon. 👩‍🦯
+
 ## Usage
 
 ### If you are a Laravel user, here are some useful [instructions](https://github.com/Nothing-Works/vuetifyjs-mix-extension/blob/master/laravel.md).
