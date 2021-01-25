@@ -1,12 +1,14 @@
 # Vuetify Laravel Mix Extension
 
-## NOTE: ATM this library does not support mix v6, will update to support soon. 👩‍🦯 (Wait! what do you mean by "soon"? I mean this WEEKEND!!! OK???) 👩‍🦯
-
 ## Usage
 
 ### If you are a Laravel user, here are some useful [instructions](https://github.com/Nothing-Works/vuetifyjs-mix-extension/blob/master/laravel.md).
 
 **NOTE: This extension only supports `sass-loader` `^9.0.0` ATM.**
+
+**Highly recommend updating you mix version to `^6.0.0`, as it provides much better experience and much faster.**
+
+**The code snippets are for mix `^6.0.0`, if you are still not convinced and want to use mix version `^5.0.0` see [the old api here](https://github.com/Nothing-Works/vuetifyjs-mix-extension/blob/master/laravel.md)**
 
 1. Install
 
@@ -25,9 +27,9 @@ require('vuetifyjs-mix-extension')
 3. Enable the extension by calling `vuetify()` in your Mix chain:
 
 ```js
-mix.js('resources/js/app.js', 'public/js').vuetify()
+mix.js('resources/js/app.js', 'public/js').vuetify().vue()
 //if you use vuetify-loader
-mix.js('resources/js/app.js', 'public/js').vuetify('vuetify-loader')
+mix.js('resources/js/app.js', 'public/js').vuetify('vuetify-loader').vue()
 ```
 
 4. Run npm script
@@ -45,10 +47,9 @@ By default it's going to look at your root directory `'resources/sass/variables.
 You can also give it a different path, for example:
 
 ```js
-mix.js('resources/js/app.js', 'public/js').vuetify(
-    'vuetify-loader',
-    'src/path/to/variables.scss'
-)
+mix.js('resources/js/app.js', 'public/js')
+    .vuetify('vuetify-loader', 'src/path/to/variables.scss')
+    .vue()
 ```
 
 ## Progressive images
@@ -63,7 +64,9 @@ Here is an example:
 
 ```js
 const options = { progressiveImages: true }
-mix.js('resources/js/app.js', 'public/js').vuetify('vuetify-loader', options)
+mix.js('resources/js/app.js', 'public/js')
+    .vuetify('vuetify-loader', options)
+    .vue()
 ```
 
 Of course you can pass more options to it, it works the same as the `vuetify-loader` [doc](https://github.com/vuetifyjs/vuetify-loader/blob/master/README.md#configuration).
@@ -75,16 +78,30 @@ Of course you can pass more options to it, it works the same as the `vuetify-loa
 To extract all Vuetify components css, pass the `extract` option.
 
 ```js
-mix.js('resources/js/app.js', 'public/js').vuetify('vuetify-loader', {
-    extract: 'css/vuetify-components.css'
-})
+mix.js('resources/js/app.js', 'public/js')
+    .vuetify('vuetify-loader', {
+        extract: 'css/vuetify-components.css'
+    })
+    .vue()
 ```
 
 ## Postcss support
 
 ```js
-mix.js('resources/js/app.js', 'public/js').vuetify('', { postcss: true })
+mix.js('resources/js/app.js', 'public/js').vuetify('', { postcss: true }).vue()
 ```
+
+## known issue (26/01/2021)
+
+If you are using mix `^6.0.0` you should face this error, `Error: Cannot find module 'webpack/lib/RuleSet'`
+
+This is because the `vuetify-loader` current release is not supported webpack 5, the `@next` version has the webpack 5 support.
+
+There are two ways you can solve this error (assuming you have the latest version of this plugin which is `0.0.18`):
+
+    1. `npm uninstall vuetify-loader` and then run you compile scripts.
+
+    2. Just simply update `vuetify-loader` to `@next` by running `npm i vuetify-loader@next -D`
 
 ## License
 

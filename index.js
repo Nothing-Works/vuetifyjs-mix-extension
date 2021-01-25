@@ -38,7 +38,7 @@ class Vuetify {
 
         const deps = ['vuetify', 'sass', 'sass-loader', 'deepmerge']
 
-        if (this.withVuetifyLoader()) deps.push('vuetify-loader')
+        if (this.withVuetifyLoader()) deps.push('vuetify-loader@next')
 
         if (this.withExtract()) deps.push('mini-css-extract-plugin')
 

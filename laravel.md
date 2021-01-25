@@ -1,5 +1,7 @@
 # For Laravel User
 
+**NOTE: This is for mix version `^5.0.0`, you can find the mix version `^6.0.0` examples [here](https://github.com/Nothing-Works/vuetifyjs-mix-extension/blob/master/readme.md)**
+
 ## Install laravel and scaffolding vue.
 
 ```bash
