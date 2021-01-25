@@ -103,9 +103,9 @@ class Vuetify {
                     // eslint-disable-next-line no-undef
                     hmr: Mix.isUsing('hmr')
                 },
-                chunkFilename: mix.config.publicPath
+                chunkFilename: global.Config.publicPath
                     ? path.join('/', this.extract)
-                    : path.join('/', mix.config.publicPath, this.extract)
+                    : path.join('/', global.Config.publicPath, this.extract)
             })
         )
     }
