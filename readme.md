@@ -1,3 +1,9 @@
+<p align="center">
+<a href="https://www.npmjs.com/package/vuetifyjs-mix-extension"><img alt="npm" src="https://img.shields.io/npm/v/vuetifyjs-mix-extension"></a>
+<a href="https://npmcharts.com/compare/vuetifyjs-mix-extension"><img alt="npm" src="https://img.shields.io/npm/dt/vuetifyjs-mix-extension"></a>
+<a href="https://www.npmjs.com/package/vuetifyjs-mix-extension"><img alt="NPM" src="https://img.shields.io/npm/l/vuetifyjs-mix-extension"></a>
+</p>
+
 # Vuetify Laravel Mix Extension
 
 ## Usage
@@ -13,7 +19,7 @@
 1. Install
 
 ```bash
-npm i vuetifyjs-mix-extension -D
+npm i vuetifyjs-mix-extension@0.0.18 -D
 ```
 
 2. Then require the extension in your Mix configuration:
@@ -103,7 +109,7 @@ There are two ways you can solve this error (assuming you have the latest versio
 
     2. Just simply update `vuetify-loader` to `@next` by running `npm i vuetify-loader@next -D`
 
-If you use this plugin for the first time, you should face this.
+If you use this plugin for the first time, you should not face this.
 
 ## License
 
