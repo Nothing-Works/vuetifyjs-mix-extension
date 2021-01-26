@@ -19,7 +19,7 @@
 1. Install
 
 ```bash
-npm i vuetifyjs-mix-extension@0.0.18 -D
+npm i vuetifyjs-mix-extension@0.0.19 -D
 ```
 
 2. Then require the extension in your Mix configuration:
