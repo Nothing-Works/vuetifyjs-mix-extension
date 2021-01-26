@@ -99,10 +99,6 @@ class Vuetify {
         config.plugins.push(
             new MiniCssExtractPlugin({
                 filename: this.extract,
-                options: {
-                    // eslint-disable-next-line no-undef
-                    hmr: Mix.isUsing('hmr')
-                },
                 chunkFilename: global.Config.publicPath
                     ? path.join('/', this.extract)
                     : path.join('/', global.Config.publicPath, this.extract)
