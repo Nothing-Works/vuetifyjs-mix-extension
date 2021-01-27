@@ -19,7 +19,7 @@
 1. Install
 
 ```bash
-npm i vuetifyjs-mix-extension@0.0.19 -D
+npm i vuetifyjs-mix-extension@0.0.20 -D
 ```
 
 2. Then require the extension in your Mix configuration:
@@ -103,7 +103,7 @@ If you are using mix `^6.0.0` you should face this error, `Error: Cannot find mo
 
 This is because the `vuetify-loader` current release is not supported webpack 5, the `@next` version has the webpack 5 support.
 
-There are two ways you can solve this error (assuming you have the latest version of this plugin which is `0.0.18`):
+There are two ways you can solve this error (assuming you have the latest version of this plugin which is `0.0.20`):
 
     1. `npm uninstall vuetify-loader` and then run you compile scripts.
 

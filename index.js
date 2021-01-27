@@ -1,7 +1,6 @@
 const mix = require('laravel-mix')
 const getPath = require('./src/getPath')
 const resolveOptions = require('./src/resolveOptions')
-const path = require('path')
 
 class Vuetify {
     constructor() {
@@ -97,12 +96,7 @@ class Vuetify {
         const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
         config.plugins.push(
-            new MiniCssExtractPlugin({
-                filename: this.extract,
-                chunkFilename: global.Config.publicPath
-                    ? path.join('/', this.extract)
-                    : path.join('/', global.Config.publicPath, this.extract)
-            })
+            new MiniCssExtractPlugin({ filename: this.extract })
         )
     }
 
