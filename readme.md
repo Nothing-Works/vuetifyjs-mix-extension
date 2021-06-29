@@ -97,20 +97,6 @@ mix.js('resources/js/app.js', 'public/js')
 mix.js('resources/js/app.js', 'public/js').vuetify('', { postcss: true }).vue()
 ```
 
-## known issue (for existing plugin users 26/01/2021)
-
-If you are using mix `^6.0.0` you should face this error, `Error: Cannot find module 'webpack/lib/RuleSet'`
-
-This is because the `vuetify-loader` current release is not supported webpack 5, the `@next` version has the webpack 5 support.
-
-There are two ways you can solve this error (assuming you have the latest version of this plugin which is `0.0.20`):
-
-    1. `npm uninstall vuetify-loader` and then run you compile scripts.
-
-    2. Just simply update `vuetify-loader` to `@next` by running `npm i vuetify-loader@next -D`
-
-If you use this plugin for the first time, you should not face this.
-
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE) for more information.
